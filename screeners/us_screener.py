@@ -38,6 +38,10 @@ class USScreener(BaseScreener):
         index_members = self.get_index_members('SPX', start_date, end_date)
         intersection = self.get_intersection(screening_results, index_members)
 
+        if len(intersection) == 0:
+            self.logger.info("No results found.")
+            return
+
         self.logger.info(f"Result: {intersection}")
         self.logger.info(f"Result count: {len(intersection)}")
         today_str = dt.date.today().isoformat()
