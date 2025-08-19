@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 import smtplib
 from email.message import EmailMessage
+from playsound import playsound
 
 class EmailSender:
     def __init__(self):
@@ -24,3 +25,6 @@ class EmailSender:
             server.starttls()
             server.login(self.smtp_user, self.smtp_password)
             server.send_message(msg)
+
+        audio_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'audio/ringtone.mp3'))
+        playsound(audio_path)
