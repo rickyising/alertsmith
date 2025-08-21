@@ -27,4 +27,6 @@ class EmailSender:
             server.send_message(msg)
 
         audio_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'audio/ringtone.mp3'))
-        playsound(audio_path)
+        
+        while True:
+            playsound(audio_path)
